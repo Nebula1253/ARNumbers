@@ -34,6 +34,8 @@ public class Results : MonoBehaviour
         quitButton.gameObject.GetComponentInChildren<TMP_Text>().text = LangManager.Current.Quit;
         restartButton.gameObject.GetComponentInChildren<TMP_Text>().text = LangManager.Current.Restart;
 
+        AudioManager.Instance.Results(howManyCorrect > 6);
+
         if (howManyCorrect <= 3)
         {
             commentText.text = LangManager.Current.ResultsComments[0];
@@ -45,13 +47,11 @@ public class Results : MonoBehaviour
         else if (howManyCorrect <= 9)
         {
             fireworks.SetActive(true);
-            AudioManager.Instance.Results();
             commentText.text = LangManager.Current.ResultsComments[2];
         }
         else
         {
             fireworks.SetActive(true);
-            AudioManager.Instance.Results();
             commentText.text = LangManager.Current.ResultsComments[3];
         }
     }

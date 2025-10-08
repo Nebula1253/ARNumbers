@@ -76,11 +76,14 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void Results()
+    public void Results(bool playApplause = false)
     {
         audioSource.Stop();
-        audioSource.clip = finalApplause;
-        audioSource.Play();
-        audioSource.PlayOneShot(fireworks);
+        if (playApplause)
+        {
+            audioSource.clip = finalApplause;
+            audioSource.Play();
+            audioSource.PlayOneShot(fireworks);
+        }
     }
 }
